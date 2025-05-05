@@ -1,4 +1,4 @@
-import { Button, Container, Flex, Img } from "@chakra-ui/react"
+import { Container, Flex, Img } from "@chakra-ui/react"
 import CvRequestForm from "./CvRequestForm"
 
 function App() {
@@ -10,7 +10,12 @@ function App() {
         </Flex>
       </header>
       <main>
-        <Container >
+        <Container
+          maxW='77ch'
+          display='flex'
+          flexDir='column'
+          justifyContent='center'
+        >
           <CvRequestForm />
         </Container>
       </main>
