@@ -1,11 +1,11 @@
-import { Button } from "@chakra-ui/react"
+import { Button, Img } from "@chakra-ui/react"
 import CvRequestForm from "./CvRequestForm"
 
 function App() {
   return (
     <>
       <header className="header">
-        <h1>My Collection</h1>
+        <Img w={64} src="/public/images/honkytonk-robot-portrait.png" />
       </header>
       <main>
         <CvRequestForm />
