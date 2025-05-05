@@ -1,4 +1,5 @@
 import { Button } from "@chakra-ui/react"
+import CvRequestForm from "./CvRequestForm"
 
 function App() {
   return (
@@ -6,9 +7,9 @@ function App() {
       <header className="header">
         <h1>My Collection</h1>
       </header>
-      <section className="main">
-        <Button>Testing Chakra</Button>
-      </section>
+      <main>
+        <CvRequestForm />
+      </main>
     </>
   )
 }
