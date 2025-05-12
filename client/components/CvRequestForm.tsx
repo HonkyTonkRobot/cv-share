@@ -1,4 +1,4 @@
-import { Box, FormControl, FormErrorMessage, FormHelperText, FormLabel, Heading, Input, Text, VStack } from "@chakra-ui/react"
+import { Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input, Text, VStack } from "@chakra-ui/react"
 import { ChangeEvent, useState } from "react"
 
 // NOTE: How AI was used on this page
@@ -7,32 +7,32 @@ import { ChangeEvent, useState } from "react"
 
 function CvRequestForm() {
   const [emailInput, setEmailInput] = useState('')
+  // const [emailError, setEmailError] = useState('')
   const [linkedInInput, setLinkedInInput] = useState('')
+  // const [linkedInError, setLinkedInError] = usetState('')
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    return setEmailInput(e.target.value)
+    setEmailInput(e.target.value)
   }
 
   const handleLinkedInChange = (e: ChangeEvent<HTMLInputElement>) => {
-    return setLinkedInInput(e.target.value)
+    setLinkedInInput(e.target.value)
   }
 
   const emailRegex = new RegExp("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")
   const isEmail = emailRegex.test(emailInput)
 
-  const linkedInRegex = new RegExp("^(https?:\\/\\/)?(www\\.)?linkedin\\.com\\/.*$")
+  const linkedInRegex = new RegExp("^(https?:\\/\\/)?(www\\.)?linkedin\\.com\\/in\\/.*$")
   const isLinkedIn = linkedInRegex.test(linkedInInput)
 
 
 
-  console.log("email", emailInput)
-  console.log("LinkedIn", linkedInInput)
   return (
     <VStack>
       <Heading as='h2' size='2xl' padding={2}>
-        Thanks for your interest
+        Thanks for your interest!
       </Heading>
-      <Box maxW='70ch'>
+      <Box maxW='100ch'>
         <Text fontSize='lg' paddingBottom={2}>
           I kindly request your name and company before download
         </Text>
@@ -40,7 +40,8 @@ function CvRequestForm() {
           I&apos;d love to know who&apos;s checking out my work. I may follow up via LinkedIn or email to connect. Always happy to chat!
         </Text>
       </Box>
-      <FormControl isRequired>
+      {/* <form> */}
+      <FormControl isRequired >
         <FormLabel>Full Name</FormLabel>
         <Input placeholder='Full Name' />
       </FormControl>
@@ -48,7 +49,7 @@ function CvRequestForm() {
         <FormLabel>Company</FormLabel>
         <Input placeholder='Company name' />
       </FormControl>
-      <FormControl isRequired>
+      <FormControl isInvalid={!isEmail} >
         <FormLabel>Email</FormLabel>
         <Input type='email' value={emailInput} placeholder='Email' onChange={handleEmailChange} />
         {isEmail ? ""
@@ -58,7 +59,7 @@ function CvRequestForm() {
             </FormErrorMessage>
           )}
       </FormControl>
-      <FormControl>
+      <FormControl isInvalid={!isLinkedIn} >
         <FormLabel>LinkedIn</FormLabel>
         <Input placeholder='LinkedIn' value={linkedInInput} onChange={handleLinkedInChange} />
         {isLinkedIn ? ""
@@ -68,6 +69,8 @@ function CvRequestForm() {
             </FormErrorMessage>
           )}
       </FormControl>
+      {/* <Button mt={4} type='submit'>Submit</Button> */}
+      {/* </form> */}
     </VStack >
   )
 }
