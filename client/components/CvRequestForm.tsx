@@ -4,6 +4,7 @@ import { ChangeEvent, useState } from "react"
 // NOTE: How AI was used on this page
 // - to get the regex for email's and linkedin
 // - to learn what the .test() method did in JavaScript so that I can apply it, and understand what it is doing.
+// - Used AI to troubleshoot why my handleEmailBlur was not working, and learned that I couldn't render JSX from a handle blur the way I was trying it, though as I type this I remember I've done, entirely new returns from functions outside the original return. I ended up using the handle blur to change the state and adding that state as a condition in the ternary for the error messages.
 
 function CvRequestForm() {
   const [emailInput, setEmailInput] = useState('')
