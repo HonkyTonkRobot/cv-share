@@ -28,10 +28,10 @@ function CvRequestForm() {
     setLinkedInBlurred(true)
   }
 
-  const emailRegex = new RegExp("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")
+  const emailRegex = new RegExp("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", "i")
   const isEmail = emailRegex.test(emailInput)
 
-  const linkedInRegex = new RegExp("^(https?:\\/\\/)?(www\\.)?linkedin\\.com\\/in\\/.*$")
+  const linkedInRegex = new RegExp("^(https?:\\/\\/)?(www\\.)?linkedin\\.com\\/in\\/.*$", "i")
   const isLinkedIn = linkedInRegex.test(linkedInInput)
 
 
