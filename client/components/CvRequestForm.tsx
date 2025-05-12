@@ -40,7 +40,7 @@ function CvRequestForm() {
       <Heading as='h2' size='2xl' padding={2}>
         Thanks for your interest!
       </Heading>
-      <Box maxW='100ch'>
+      <Box maxW='72ch'>
         <Text fontSize='lg' paddingBottom={2}>
           I kindly request your name and company before download
         </Text>
@@ -58,7 +58,7 @@ function CvRequestForm() {
         <Input placeholder='Company name' />
       </FormControl>
       <FormControl isInvalid={!isEmail && emailInput !== ''} >
-        <FormLabel>Email</FormLabel>
+        <FormLabel>Email <small>(optional)</small></FormLabel>
         <Input type='email' value={emailInput} placeholder='Email' onChange={handleEmailChange} onBlur={handleEmailBlur} />
         {!isEmail && !emailBlurred ? ""
           : (
@@ -68,7 +68,7 @@ function CvRequestForm() {
           )}
       </FormControl>
       <FormControl isInvalid={!isLinkedIn && linkedInInput !== ''} >
-        <FormLabel>LinkedIn</FormLabel>
+        <FormLabel>LinkedIn <small>(optional)</small></FormLabel>
         <Input placeholder='LinkedIn' value={linkedInInput} onChange={handleLinkedInChange} onBlur={handleLinkedInBlur} />
         {
           !isLinkedIn && !linkedInBlurred ? ""
