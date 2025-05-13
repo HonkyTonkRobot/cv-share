@@ -7,6 +7,7 @@ export default function useAddProspect() {
   return useMutation({
     mutationFn: async (data: ProspectData) => {
       await request.post('/api/v1/prospects').send(data)
+      console.log("test")
     },
     onSuccess: async () => {
       queryClient.invalidateQueries({ queryKey: ['prospect'] })

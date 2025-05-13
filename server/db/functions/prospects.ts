@@ -14,4 +14,4 @@ export async function addNewProspect(data: ProspectData) {
     linkedin: data.linkedin ?? null,
   })
   return userAdded
-
+}
