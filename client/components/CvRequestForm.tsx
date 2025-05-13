@@ -12,20 +12,10 @@ const initialFormState = {
 }
 
 function CvRequestForm() {
-  // const [emailInput, setEmailInput] = useState('')
   const [emailBlurred, setEmailBlurred] = useState(false)
-  // const [linkedInInput, setLinkedInInput] = useState('')
   const [linkedInBlurred, setLinkedInBlurred] = useState(false)
   const [formState, setFormState] = useState(initialFormState)
   const addProspectMutation = useAddProspect()
-
-  // const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-  //   setEmailInput(e.target.value)
-  // }
-
-  // const handleLinkedInChange = (e: ChangeEvent<HTMLInputElement>) => {
-  //   setLinkedInInput(e.target.value)
-  // }
 
   const handleEmailBlur = () => {
     setEmailBlurred(true)
