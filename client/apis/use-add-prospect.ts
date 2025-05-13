@@ -6,10 +6,10 @@ export default function useAddProspect() {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: async (data: ProspectData) => {
-      await request.post('api/v1/prospect').send(data)
+      await request.post('/api/v1/prospects').send(data)
     },
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      queryClient.invalidateQueries({ queryKey: ['prospect'] })
     },
   })
 }
