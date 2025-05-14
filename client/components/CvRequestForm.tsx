@@ -1,17 +1,21 @@
 import { Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input, Text, VStack } from "@chakra-ui/react"
-import { ChangeEvent, useState } from "react"
+import { useState } from "react"
 import useAddProspect from "../apis/use-add-prospect"
 
 // NOTE: How AI was used on this page
 // - to get the regex for email's and linkedin
 // - to learn what the .test() method did in JavaScript so that I can apply it, and understand what it is doing.
 // - Used AI to troubleshoot why my handleEmailBlur was not working, and learned that I couldn't render JSX from a handle blur the way I was trying it, though as I type this I remember I've done, entirely new returns from functions outside the original return. I ended up using the handle blur to change the state and adding that state as a condition in the ternary for the error messages.
+// - showed me how to add onSubmit to the useMutation onSuccess instead of immediately after my .mutate in the handleSubmit that way it checks the db has been updated before providing the download component.
+interface Props {
+  onSubmit: (data: { name: string; company: string }) => void;
+}
 
 const initialFormState = {
   name: '', company: '', email: '', linkedin: ''
 }
 
-function CvRequestForm() {
+function CvRequestForm({ onSubmit }: Props) {
   const [emailBlurred, setEmailBlurred] = useState(false)
   const [linkedInBlurred, setLinkedInBlurred] = useState(false)
   const [formState, setFormState] = useState(initialFormState)
@@ -34,6 +38,7 @@ function CvRequestForm() {
       linkedin: formState.linkedin,
     })
     setFormState(initialFormState)
+    onSubmit({ name: formState.name, company: formState.company })
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
