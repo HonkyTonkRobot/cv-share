@@ -1,4 +1,4 @@
-import { Container, Flex, Img } from "@chakra-ui/react"
+import { Container, Flex, Heading, Img } from "@chakra-ui/react"
 
 import CvRequestForm from "./CvRequestForm"
 import CvDownload from "./CvDownload"
@@ -41,7 +41,7 @@ function App() {
           flexDir='column'
           justifyContent='center'
         >
-          <p>{formData?.name}</p>
+          <Heading as="h2" size="lg">{`Thanks ${formData?.name}!`}</Heading>
           {formSubmitted
             ? <CvDownload />
             : <CvRequestForm onSubmit={handleFormSubmitted} />
