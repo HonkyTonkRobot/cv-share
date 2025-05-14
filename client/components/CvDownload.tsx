@@ -1,5 +1,8 @@
 import { Link } from "@chakra-ui/react"
 
+//AI acknowledgement:
+// - used AI to learn how to get the raw file from github repo for creating the download link.
+
 function CvDownload() {
 
   return (
