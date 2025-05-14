@@ -1,9 +1,10 @@
-import { Container, Flex, Heading, Img } from "@chakra-ui/react"
+import { Container, Flex, Heading, Img, VStack } from "@chakra-ui/react"
 
 import CvRequestForm from "./CvRequestForm"
 import CvDownload from "./CvDownload"
 
 import { useState } from "react"
+import YellowCircle from "./YellowCircle"
 
 // AI acknowledgement:
 // I used to confirm my suspicion on how to conditionally render the right component without using useParams.
@@ -31,7 +32,8 @@ function App() {
     <>
       <header className="header">
         <Flex justifyContent='center'>
-          <Img w={64} src="/images/honkytonk-robot-portrait.png" />
+          {/* <Img w={64} src="/images/honkytonk-robot-portrait.png" /> */}
+          <YellowCircle />
         </Flex>
       </header>
       <main>
@@ -41,17 +43,19 @@ function App() {
           flexDir='column'
           justifyContent='center'
         >
-          {formSubmitted
-            ? (
-              <>
-                <Heading as="h2" size="lg">
-                  {`Thanks ${formData?.name}!`}
-                </Heading>
-                <CvDownload />
-              </>
-            )
-            : <CvRequestForm onSubmit={handleFormSubmitted} />
-          }
+          <VStack>
+            {formSubmitted
+              ? (
+                <>
+                  <Heading as="h2" size="lg" paddingTop={4}>
+                    {`Thanks ${formData?.name}!`}
+                  </Heading>
+                  <CvDownload />
+                </>
+              )
+              : <CvRequestForm onSubmit={handleFormSubmitted} />
+            }
+          </VStack>
         </Container>
       </main>
     </>
