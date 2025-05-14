@@ -11,7 +11,7 @@ function App() {
       </header>
       <main>
         <Container
-          maxW='77ch'
+          maxW='79ch'
           display='flex'
           flexDir='column'
           justifyContent='center'

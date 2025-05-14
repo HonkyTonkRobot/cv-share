@@ -1,11 +1,12 @@
+import express from 'express'
 import * as Path from 'node:path'
 
-import express from 'express'
+import prospectRoutes from './routes/prospects'
 
 const server = express()
 server.use(express.json())
 
-// ADD YOUR API ROUTES HERE
+server.use('/api/v1/prospects', prospectRoutes)
 
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve('public')))
@@ -16,3 +17,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 export default server
+
