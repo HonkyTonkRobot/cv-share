@@ -1,5 +1,5 @@
 import { Box, Button, FormControl, FormErrorMessage, FormLabel, Heading, Input, Text, VStack } from "@chakra-ui/react"
-import { ChangeEvent, useState } from "react"
+import { useState } from "react"
 import useAddProspect from "../apis/use-add-prospect"
 
 // NOTE: How AI was used on this page
