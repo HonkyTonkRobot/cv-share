@@ -41,9 +41,15 @@ function App() {
           flexDir='column'
           justifyContent='center'
         >
-          <Heading as="h2" size="lg">{`Thanks ${formData?.name}!`}</Heading>
           {formSubmitted
-            ? <CvDownload />
+            ? (
+              <>
+                <Heading as="h2" size="lg">
+                  {`Thanks ${formData?.name}!`}
+                </Heading>
+                <CvDownload />
+              </>
+            )
             : <CvRequestForm onSubmit={handleFormSubmitted} />
           }
         </Container>
