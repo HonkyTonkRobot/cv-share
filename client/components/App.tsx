@@ -4,6 +4,7 @@ import CvRequestForm from "./CvRequestForm"
 import CvDownload from "./CvDownload"
 
 import { useState } from "react"
+import YellowCircle from "./YellowCircle"
 
 // AI acknowledgement:
 // I used to confirm my suspicion on how to conditionally render the right component without using useParams.
@@ -31,7 +32,8 @@ function App() {
     <>
       <header className="header">
         <Flex justifyContent='center'>
-          <Img w={64} src="/images/honkytonk-robot-portrait.png" />
+          {/* <Img w={64} src="/images/honkytonk-robot-portrait.png" /> */}
+          <YellowCircle />
         </Flex>
       </header>
       <main>
