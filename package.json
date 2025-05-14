@@ -17,6 +17,8 @@
     "knex": "knex --knexfile ./server/db/knexfile.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"
+    "render:build": "npm install && npm run build && npm prune --omit=dev && NODE_ENV='production' npm run knex migrate:latest",
+    "render:start": "node dist/server.js"
   },
   "keywords": [
     "fullstack"
@@ -37,6 +39,7 @@
     "express": "^4.17.2",
     "framer-motion": "^12.9.4",
     "knex": "^2.5.1",
+    "pg": "^8.16.0",
     "sqlite3": "^5.1.6",
     "superagent": "^8.1.2"
   },
